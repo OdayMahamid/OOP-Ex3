@@ -27,6 +27,24 @@ public class Graph_Algo implements graph_algorithms,Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	public DGraph graph;
+	
+	
+	
+	// constructors 
+	public Graph_Algo(graph g) {
+		this.graph=(DGraph)g;
+	}
+	public Graph_Algo() {
+		this.graph=new DGraph();
+	}
+	
+
+	public Graph_Algo(DGraph g) {
+		graph=(DGraph)g;
+	}
+	
+	
+	
 	@Override
 	public void init(graph g) {
 		if(g instanceof DGraph) {

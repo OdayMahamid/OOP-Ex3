@@ -15,12 +15,20 @@ public class DGraph implements graph,Serializable{
 	public HashMap<String, EdgeData> edges;
 	public HashMap<Integer, NodeData> vertices;
 
-	static int mc;
+	 int mc;
 
 	public DGraph() {
 		this.vertices= new HashMap<Integer, NodeData>();
 		this.edges= new HashMap<String, EdgeData>();
 		mc=0;
+	}
+	
+	public DGraph(DGraph G) {
+		this.vertices= new HashMap<Integer, NodeData>();
+		this.edges= new HashMap<String, EdgeData>();
+		this.vertices.putAll(G.vertices);
+		this.edges.putAll(G.edges);
+		this.mc=G.mc;
 	}
 
 	@Override
@@ -120,5 +128,16 @@ public class DGraph implements graph,Serializable{
 	@Override
 	public int getMC() {
 		return mc;
+	}
+	
+	
+	public boolean cN(int k) {
+		if (this.vertices.containsKey(k)) { return true; }
+		return false;
+	}
+
+	public boolean cE(int s, int d) {
+		if (getEdge(s,d)!=null) return true; 
+		return false;
 	}
 }
